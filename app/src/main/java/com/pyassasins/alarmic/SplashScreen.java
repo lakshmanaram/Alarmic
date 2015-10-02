@@ -76,7 +76,7 @@ public class SplashScreen extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                HttpPost httpPost = new HttpPost("http://6938e004.ngrok.com/app/register/");
+                HttpPost httpPost = new HttpPost("https://6a6a4748.ngrok.com/app/register/");
                 JSONObject json=new JSONObject();
                 try {
                     json.put("gcm",regId);
@@ -102,7 +102,9 @@ public class SplashScreen extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
                 Log.i("responsee",httpResponse.toString());
+                MyIntentService.startActionText(SplashScreen.this,"adhsv",number,number,"8:30","dj",0);
                 return null;
             }
         }.execute();

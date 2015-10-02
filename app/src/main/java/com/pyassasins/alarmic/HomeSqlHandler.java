@@ -11,12 +11,12 @@ import java.util.List;
 
 
 public class HomeSqlHandler extends SQLiteOpenHelper {
-    public static final int VERSION=1;
+    public static final int VERSION=2;
     public static final String DBNAME="alarm.db";
     public static final String TABLENAME="ALARMS";
     public static final String ALARMTEXT="alarm";
     public static final String ALARMTIME="time";
-    public static final String ALARMTO="to";
+    public static final String ALARMTO="lto";
     public static final String ALARMHIDE="hide";
     public HomeSqlHandler(Context context) {
         super(context, DBNAME, null, VERSION);
@@ -31,6 +31,7 @@ public class HomeSqlHandler extends SQLiteOpenHelper {
                 ALARMTO+" TEXT," +
                 ALARMHIDE+" INTEGER" +
                 ");";
+        db.execSQL(query);
     }
 
     @Override
@@ -76,7 +77,7 @@ public class HomeSqlHandler extends SQLiteOpenHelper {
         Alarmy a;
         SQLiteDatabase dbs=getReadableDatabase();
         Cursor c=dbs.query(true, TABLENAME, new String[] {
-                        "_id",ALARMTEXT,ALARMTIME,ALARMTO},
+                        "_id",ALARMTEXT,ALARMTIME,ALARMTO,ALARMHIDE},
                 null,
                 null,
                 null, null, null ,null);

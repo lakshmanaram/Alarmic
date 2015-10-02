@@ -1,17 +1,62 @@
 package com.pyassasins.alarmic;
 
 import android.app.Activity;
+import android.content.ContentResolver;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class Contacts extends Activity {
+    ArrayList<Cont> contactslist = new ArrayList<>();                                           //contacts
 
+    ContactsHandler contactsHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
+        contactsHandler = new ContactsHandler(this);
+        if(contactsHandler.getContactslist().isEmpty()){                                                                        //only first time.
+            ContentResolver cr = getContentResolver();
+            Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
+                    null, null, null, null);
+            if (cur.getCount() > 0) {
+                while (cur.moveToNext()) {
+                    String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
+                    String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                    if (Integer.parseInt(cur.getString(
+                            cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
+                        Cursor pCur = cr.query(
+                                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                null,
+                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",
+                                new String[]{id}, null);
+                        while (pCur.moveToNext()) {
+                            String phoneNo = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                            Cont temp = new Cont(name,phoneNo,0);
+                            contactslist.add(temp);
+//                        Toast.makeText(this, "Name: " + name + ", Phone No: " + phoneNo, Toast.LENGTH_SHORT).show();
+                        }
+                        pCur.close();
+                    }
+                }
+            }
+            cur.close();
+            contactsHandler.addcontacts(contactslist);
+        }
+
+        ArrayList<Cont> cl = contactsHandler.getContactslist();
+        ListView contactslist = (ListView)findViewById(R.id.contactlist);
+        ContactsListAdapter cladapter = new ContactsListAdapter(this, cl);
+        contactslist.setAdapter(cladapter);
+
+
     }
 
     @Override

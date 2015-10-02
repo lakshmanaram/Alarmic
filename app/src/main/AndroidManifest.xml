@@ -2,7 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pyassasins.alarmic" >
 
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.REGISTRATION" />
+    <uses-permission android:name="ANDROID.PERMISSION.GET_ACCOUNTS" />
+    <uses-permission android:name="ANDROID.PERMISSION.WAKE_LOCK" />
+
+    <permission
+        android:name="com.pyassasins.alarmic.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.pyassasins.alarmic.permission.C2D_MESSAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,11 +27,7 @@
         <activity
             android:name=".Contacts"
             android:label="@string/title_activity_contacts" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            .
         </activity>
         <activity
             android:name=".MyAlarms"
@@ -28,11 +36,26 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/Theme.AppCompat">
+            android:theme="@style/Theme.AppCompat" >
         </activity>
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".RingingActivity"
+            android:label="@string/title_activity_ringing"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".SplashScreen"
+            android:label="@string/title_activity_splash_screen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

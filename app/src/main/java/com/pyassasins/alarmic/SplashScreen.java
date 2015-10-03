@@ -30,7 +30,7 @@ public class SplashScreen extends AppCompatActivity {
     GoogleCloudMessaging gcmObj;
     static String GOOGLE_PROJ_ID="858719501366";
     String regId="";
-    String URL="http://40a7e077.ngrok.com";
+    String URL="http://34ab69a7.ngrok.com";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +78,7 @@ public class SplashScreen extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                HttpPost httpPost = new HttpPost("https://40a7e077.ngrok.io/app/register/");
+                HttpPost httpPost = new HttpPost("https://34ab69a7.ngrok.com/register");
                 JSONObject json=new JSONObject();
                 try {
                     json.put("gcm",regId);

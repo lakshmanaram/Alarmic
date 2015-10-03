@@ -222,6 +222,22 @@ public class MainActivity extends ActionBarActivity
                     );
                     break;
                 case 2:
+                    rootView=inflater.inflate(R.layout.activity_my_alarms,container,false);
+
+                    final HomeSqlHandler handler1=new HomeSqlHandler(getActivity());
+                    ListView lis1t=(ListView)rootView. findViewById(R.id.mlistView);
+                    Alarmy[] alarms1= handler1.getAlarmInfo();
+                    List<Alarmy> al1=new ArrayList<>();
+                    for(Alarmy i : alarms1){
+                        if(i.getHide()==1){
+                            al1.add(i);
+                        }
+                    }
+                    Alarmy[] h1=new Alarmy[al1.size()];
+                    h=al1.toArray(h1);
+
+                    HomeListAdapter adapter1=new HomeListAdapter(getActivity(),h);
+                    lis1t.setAdapter(adapter1);
                     //myalarms
                     break;
                 case 3:

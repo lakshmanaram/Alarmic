@@ -1,10 +1,12 @@
 package com.pyassasins.alarmic;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.Menu;
@@ -21,6 +23,7 @@ public class Contacts extends Activity {
     ArrayList<Cont> contactslist = new ArrayList<>();                                           //contacts
 
     ContactsHandler contactsHandler;
+    @TargetApi(Build.VERSION_CODES.ECLAIR)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

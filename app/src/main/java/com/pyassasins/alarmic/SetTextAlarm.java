@@ -2,6 +2,7 @@ package com.pyassasins.alarmic;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -39,6 +40,15 @@ public class SetTextAlarm extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_text_alarm);
+        Button demo=(Button)findViewById(R.id.demo);
+        demo.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(SetTextAlarm.this,RingingActivity.class));
+                    }
+                }
+        );
         contactsHandler = new ContactsHandler(SetTextAlarm.this);
         appContext  = this.getApplicationContext();
         //analogClock = (AnalogClock) findViewById(R.id.analogClock);

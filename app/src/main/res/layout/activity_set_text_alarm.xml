@@ -91,6 +91,16 @@
         android:id="@+id/setAlarm"
         android:textColor="#ffffff"
         android:layout_gravity="center"
-        android:text="Set Alarm" />
+        android:text="Set Alarm"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo"
+        android:id="@+id/demo"
+        android:background="#3f85f4"
+        android:textColor="#ffffff"
+        android:layout_gravity="center" />
 
 </LinearLayout>

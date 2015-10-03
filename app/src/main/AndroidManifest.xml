@@ -7,6 +7,7 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="com.google.android.c2dm.permission.REGISTRATION" />
     <uses-permission android:name="ANDROID.PERMISSION.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/> - See more at: http://www.theappguruz.com/blog/android-take-photo-camera-gallery-code-sample#sthash.45u38e3O.dpuf
     <uses-permission android:name="ANDROID.PERMISSION.WAKE_LOCK" />
 
     <permission
@@ -24,11 +25,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Contacts"
@@ -81,6 +78,11 @@
         <activity
             android:name=".SetPicAlarm"
             android:label="@string/title_activity_set_pic_alarm" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

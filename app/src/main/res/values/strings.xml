@@ -29,4 +29,5 @@
         <item>Every Week</item>
         <item>Every Month</item>
     </string-array>
+    <string name="title_activity_set_pic_alarm">SetPicAlarm</string>
 </resources>

@@ -28,13 +28,13 @@ public class ListMenuAdapter extends ArrayAdapter<String> {
         String temp=getItem(position);
         menuname.setText(temp);
         if(temp.equals("Text")){
-
+            img.setImageResource(R.drawable.ic_subject_white_24dp);
         }
         else if(temp.equals("Picture")){
-
+            img.setImageResource(R.drawable.ic_perm_media_white_24dp);
         }
         else if(temp.equals("Video")){
-
+            img.setImageResource(R.drawable.ic_view_array_white_24dp);
         }
         return v;
     }

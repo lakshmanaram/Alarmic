@@ -193,10 +193,16 @@ public class MainActivity extends ActionBarActivity
                                 mBottomSheetLayout.slideInFab();
                             }
                             else if(position==1){
-
+                                Intent intent = new Intent(getActivity(),SetPicAlarm.class);
+                                startActivity(intent);
+                                //todo: toast to say that the alarm has been set.
+                                mBottomSheetLayout.slideInFab();
                             }
                             else if (position==2){
-
+                                Intent intent = new Intent(getActivity(),SetPicAlarm.class);
+                                startActivity(intent);
+                                //todo: toast to say that the alarm has been set.
+                                mBottomSheetLayout.slideInFab();
                             }
 
                         }

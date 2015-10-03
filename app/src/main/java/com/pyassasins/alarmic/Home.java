@@ -59,10 +59,16 @@ public class Home extends AppCompatActivity {
                     mBottomSheetLayout.slideInFab();
                 }
                 else if(position==1){
-
+                    Intent intent = new Intent(getApplicationContext(),SetPicAlarm.class);
+                    startActivity(intent);
+                    //todo: toast to say that the alarm has been set.
+                    mBottomSheetLayout.slideInFab();
                 }
                 else if (position==2){
-
+                    Intent intent = new Intent(getApplicationContext(),SetPicAlarm.class);
+                    startActivity(intent);
+                    //todo: toast to say that the alarm has been set.
+                    mBottomSheetLayout.slideInFab();
                 }
 
             }

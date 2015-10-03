@@ -9,22 +9,18 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Title  :"
-            android:id="@+id/textView"
-            android:layout_marginRight="10dp" />
+            android:text="Title  :"/>
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/texttitle"
+            android:id="@+id/texttitle1"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -32,7 +28,6 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout"
         android:layout_marginTop="5dp"
         android:id="@+id/linearLayout2">
 
@@ -44,9 +39,9 @@
             android:layout_gravity="center_vertical" />
 
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/todropdown"
+            android:id="@+id/todropdown1"
             android:layout_weight="1" />
 
 
@@ -56,7 +51,7 @@
     <TextView
         android:text="10:00"
         android:textSize="60dp"
-        android:id="@+id/clock"
+        android:id="@+id/clock1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -72,7 +67,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/repeat"
+            android:id="@+id/repeat1"
             android:entries="@array/repeatarray"
             />
     </LinearLayout>
@@ -83,7 +78,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"/>
+        android:inputType="textMultiLine"
+        android:id="@+id/message1"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AnalogClock;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -17,15 +18,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.lang.reflect.Array;
 import java.sql.Time;
+import java.util.ArrayList;
 
 
 public class SetTextAlarm extends ActionBarActivity {
 
     Context appContext;
     Button setalarm;
+    ContactsHandler contactsHandler;
     EditText title;
-    Spinner spinner;
+    Spinner spinner,repeat;
     ImageButton tpb;
     TimePicker timePicker;
     int hour,min;
@@ -35,11 +39,24 @@ public class SetTextAlarm extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_text_alarm);
+        contactsHandler = new ContactsHandler(SetTextAlarm.this);
         appContext  = this.getApplicationContext();
         //analogClock = (AnalogClock) findViewById(R.id.analogClock);
 //        analogClock.onT
         title = (EditText) findViewById(R.id.texttitle);
         spinner = (Spinner) findViewById(R.id.todropdown);
+        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<Cont> temp = contactsHandler.getAuthenticatedcontacts(1);
+        for(Cont i: temp)
+        {
+            list.add(i.getName());
+
+        }
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+        repeat = (Spinner) findViewById(R.id.repeat);
         clock = (TextView) findViewById(R.id.clock);
         clock.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +64,8 @@ public class SetTextAlarm extends ActionBarActivity {
                 final Dialog dialog = new Dialog(SetTextAlarm.this);
                 dialog.setContentView(R.layout.timepicker);
                 dialog.setTitle("Alarm Time");
-                timePicker = (TimePicker)findViewById(R.id.timePicker);
-                tpb = (ImageButton)findViewById(R.id.tpb);
+                timePicker = (TimePicker)dialog.findViewById(R.id.timePicker);
+                tpb = (ImageButton)dialog.findViewById(R.id.tpbu);
                 tpb.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -65,7 +82,7 @@ public class SetTextAlarm extends ActionBarActivity {
         setalarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //todo:api integration
+                //todo: api integration
                 finish();
             }
         });

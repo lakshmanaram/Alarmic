@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
@@ -23,6 +24,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 public class SplashScreen extends AppCompatActivity {
     GoogleCloudMessaging gcmObj;

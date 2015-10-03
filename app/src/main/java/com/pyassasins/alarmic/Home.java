@@ -31,7 +31,6 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         final HomeSqlHandler handler=new HomeSqlHandler(this);
         ListView list=(ListView)findViewById(R.id.homelist);
         Alarmy[] alarms= handler.getAlarmInfo();

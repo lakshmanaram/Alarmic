@@ -23,6 +23,28 @@ public class ContactsHandler {
         contactsHelper = new ContactsHelper(context);
     }
 
+    public ArrayList<Cont> getAuthenticatedcontacts(int auth){
+        SQLiteDatabase sqLiteDatabase = contactsHelper.getReadableDatabase();
+        if(!contactslist.isEmpty())
+            contactslist.clear();
+        String[] columns={ContactsHelper.CONTACTNAME,ContactsHelper.CONTACTPHONE,ContactsHelper.AUTHENTICATED};
+        Cursor cv = sqLiteDatabase.query(ContactsHelper.TABLENAME, columns,ContactsHelper.AUTHENTICATED + " =?",new String[]{String.valueOf(auth)}, null, null, null);
+        int index1 = cv.getColumnIndex(ContactsHelper.CONTACTNAME);
+        int index2 = cv.getColumnIndex(ContactsHelper.CONTACTPHONE);
+        int index3 = cv.getColumnIndex(ContactsHelper.AUTHENTICATED);
+        while(cv.moveToNext()) {
+            String name = cv.getString(index1);
+            String phone = cv.getString(index2);
+            int authenticated = cv.getInt(index3);
+            if(name!=null||phone!=null) {
+                Cont temp = new Cont(name,phone,authenticated);
+                contactslist.add(temp);
+            }
+        }
+        cv.close();
+        return contactslist;
+    }
+
     public boolean updateauthentication(String phone, int auth){
         SQLiteDatabase db = contactsHelper.getWritableDatabase();
         //UPDATE attendance SET authentication = auth WHERE PHONENO = phone;

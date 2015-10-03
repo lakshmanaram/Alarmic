@@ -3,22 +3,18 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <TextView
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_weight="1"
-        android:text="Large Text"
-        android:id="@+id/contactname" />
-    <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:id="@+id/auth"/>
-</LinearLayout>
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_weight="1"
+            android:text="Large Text"
+            android:id="@+id/contactname1" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,5 +22,5 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_gravity="right"
         android:text="Medium Text"
-        android:id="@+id/contactphone" />
+        android:id="@+id/contactphone1" />
 </LinearLayout>

@@ -50,7 +50,6 @@ public class Contacts extends Activity {
             cur.close();
             contactsHandler.addcontacts(contactslist);
         }
-
         ArrayList<Cont> cl = contactsHandler.getContactslist();
         ListView contactslist = (ListView)findViewById(R.id.contactlist);
         ContactsListAdapter cladapter = new ContactsListAdapter(this, cl);

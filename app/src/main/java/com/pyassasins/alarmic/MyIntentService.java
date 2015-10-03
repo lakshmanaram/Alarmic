@@ -102,7 +102,7 @@ public class MyIntentService extends IntentService {
             e.printStackTrace();
         }
         HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost("https://6a6a4748.ngrok.com/app/newalarm/");
+        HttpPost httpPost = new HttpPost("https://40a7e077.ngrok.io/app/newalarm/");
         StringEntity s= null;
         try {
             s = new StringEntity(json.toString());

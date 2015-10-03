@@ -28,12 +28,12 @@ public class SplashScreen extends AppCompatActivity {
     GoogleCloudMessaging gcmObj;
     static String GOOGLE_PROJ_ID="858719501366";
     String regId="";
-    String URL="http://6938e004.ngrok.com";
+    String URL="http://40a7e077.ngrok.com";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
+        startActivity(new Intent(this, MainActivity.class));
         //todo:UPDATE CONTACT
         ContactsHandler handler =new ContactsHandler(this);
         if(handler.getContactslist().size()==0){
@@ -76,7 +76,7 @@ public class SplashScreen extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                HttpPost httpPost = new HttpPost("https://6a6a4748.ngrok.com/app/register/");
+                HttpPost httpPost = new HttpPost("https://40a7e077.ngrok.io/app/register/");
                 JSONObject json=new JSONObject();
                 try {
                     json.put("gcm",regId);
@@ -104,7 +104,8 @@ public class SplashScreen extends AppCompatActivity {
                 }
 
                 Log.i("responsee",httpResponse.toString());
-                MyIntentService.startActionText(SplashScreen.this,"adhsv",number,number,"8:30","dj",0);
+                MyIntentService.startActionText(SplashScreen.this, "adhsv", number, number, "8:30", "dj", 0);
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 return null;
             }
         }.execute();

@@ -44,7 +44,7 @@ public class GCMMessageHandler extends IntentService {
         Bundle extras = intent.getExtras();
         GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
         times = new String[9];
-
+        sendNotification(0,"hi");
         String messageType = gcm.getMessageType(intent);
 
         if (!extras.isEmpty()) {

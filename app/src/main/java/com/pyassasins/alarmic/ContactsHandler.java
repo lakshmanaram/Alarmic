@@ -24,6 +24,7 @@ public class ContactsHandler {
     }
 
     public ArrayList<Cont> getAuthenticatedcontacts(int auth){
+
         SQLiteDatabase sqLiteDatabase = contactsHelper.getReadableDatabase();
         if(!contactslist.isEmpty())
             contactslist.clear();
@@ -45,7 +46,7 @@ public class ContactsHandler {
         return contactslist;
     }
 
-    public boolean updateauthentication(String phone, int auth){
+    public boolean updateauthentication(String phone, int auth){                                            //0 for non-existing user, 1 for authenticated user, -1 for blocked user
         SQLiteDatabase db = contactsHelper.getWritableDatabase();
         //UPDATE attendance SET authentication = auth WHERE PHONENO = phone;
         ContentValues cv = new ContentValues();
@@ -88,6 +89,7 @@ public class ContactsHandler {
             cv.put(ContactsHelper.CONTACTNAME,temp.getName());
             cv.put(ContactsHelper.CONTACTPHONE,temp.getPhoneno());
             cv.put(ContactsHelper.AUTHENTICATED,temp.getAuthenticated());
+            updateauthentication("14323141341",1);
             sqLiteDatabase.insert(ContactsHelper.TABLENAME,ContactsHelper.CONTACTNAME,cv);
         }
     }

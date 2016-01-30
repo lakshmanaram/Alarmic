@@ -49,6 +49,7 @@ public class SetPicAlarm extends ActionBarActivity {
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        if(dataAdapter!=null)
         spinner.setAdapter(dataAdapter);
         repeat = (Spinner) findViewById(R.id.repeat1);
         clock = (TextView) findViewById(R.id.clock1);
